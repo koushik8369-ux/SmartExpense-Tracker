@@ -1,91 +1,131 @@
-﻿# 💰 Smart Expense Tracker
+# 💰 Smart Expense Tracker
 
-A professional Java console application that calculates monthly balance, monitors expenses, and provides smart spending alerts.
+A beginner-friendly Java console application that records category-based monthly expenses, analyzes spending habits, calculates savings, and provides smart financial alerts.
 
 ## 📌 Problem Statement
 
-Many people struggle to monitor their monthly spending. Smart Expense Tracker accepts monthly income and expenses, calculates the remaining balance, and warns the user when spending becomes too high.
+Many people know how much they spend each month but cannot clearly identify where their money is going. The Smart Expense Tracker helps users record expenses under different categories, calculate their total spending and remaining balance, identify the highest-spending category, and receive alerts when expenses become too high.
 
 ## ✨ Features
 
-- 💵 Accepts monthly income
-- 🧾 Accepts total expenses
-- 🧮 Calculates the remaining balance
-- ⚠️ Detects overspending
-- 📊 Warns when expenses exceed 80% of income
-- ✅ Displays the user's financial status
-- 🖥️ Simple console-based interface
+- Accepts the user's monthly income
+- Records expenses under six categories
+- Calculates total monthly expenses
+- Calculates the remaining balance
+- Displays spending and savings percentages
+- Identifies the highest-spending category
+- Detects overspending
+- Warns when spending reaches 80% of income
+- Provides financial status and suggestions
+- Validates income and expense values
+- Displays a formatted monthly summary
+
+## 📊 Expense Categories
+
+- Food
+- Travel
+- Shopping
+- Bills
+- Education
+- Others
+
+## 🚦 Financial Status
+
+| Condition | Status |
+|---|---|
+| Expenses exceed income | Overspending |
+| Spending is 80% or more | High Spending |
+| Spending is 50% to 79.99% | Moderate Spending |
+| Spending is below 50% | Spending Under Control |
 
 ## 🛠️ Technologies Used
 
 - Java 17
 - Java Scanner
 - Conditional statements
-- Git
-- GitHub
+- Arithmetic operators
+- Formatted console output
+- Git and GitHub
+- Visual Studio Code
 
 ## 📂 Project Structure
 
+```text
 SmartExpense-Tracker/
 ├── src/
 │   └── Main.java
 ├── .gitignore
 └── README.md
+```
 
 ## ▶️ How to Run
 
-Compile:
+### 1. Compile the program
 
-    javac -d out src\Main.java
+```powershell
+javac -encoding UTF-8 -d out src\Main.java
+```
 
-Run:
+### 2. Run the program
 
-    java -cp out Main
+```powershell
+java -cp out Main
+```
 
 ## 📸 Sample Output
 
-### Spending Under Control
+```text
+================================
+     SMART EXPENSE TRACKER
+================================
+Enter monthly income: 65000
+Enter food expenses: 5000
+Enter travel expenses: 5000
+Enter shopping expenses: 10000
+Enter bill expenses: 3500
+Enter education expenses: 25000
+Enter other expenses: 4000
 
-    Enter monthly income: 50000
-    Enter total expenses: 25000
-    Remaining balance: 25000.0
-    Spending is under control.
+========== MONTHLY SUMMARY ==========
+Monthly Income      : Rs. 65000.00
+Food Expenses       : Rs. 5000.00
+Travel Expenses     : Rs. 5000.00
+Shopping Expenses   : Rs. 10000.00
+Bill Expenses       : Rs. 3500.00
+Education Expenses  : Rs. 25000.00
+Other Expenses      : Rs. 4000.00
+-------------------------------------
+Total Expenses      : Rs. 52500.00
+Remaining Balance   : Rs. 12500.00
+Spending Percentage : 80.77%
+Savings Percentage  : 19.23%
+Highest Category    : Education (Rs. 25000.00)
+-------------------------------------
+Financial Status: HIGH SPENDING
+Alert: Try to reduce unnecessary expenses.
+=====================================
+```
 
-### High Expenses
+## 🧠 Java Concepts Used
 
-    Enter monthly income: 50000
-    Enter total expenses: 45000
-    Remaining balance: 5000.0
-    Warning: Expenses are high.
+- Variables and data types
+- User input using `Scanner`
+- Arithmetic calculations
+- `if-else` conditions
+- Logical operators
+- Input validation
+- Formatted output using `printf`
+- Percentage calculations
 
-### Overspending
+## 🔮 Future Enhancements
 
-    Enter monthly income: 30000
-    Enter total expenses: 35000
-    Remaining balance: -5000.0
-    Warning: Expenses exceed income!
+- Record individual expense transactions
+- Store expense records in a file or database
+- Generate weekly and yearly reports
+- Add login functionality
+- Create a graphical user interface
+- Display expense charts
 
-## 🧠 Concepts Demonstrated
+## ✅ Conclusion
 
-- User input using Scanner
-- Variables and arithmetic operators
-- Conditional statements
-- Percentage-based expense analysis
-- Console input and output
-
-## 🚀 Future Enhancements
-
-- Add different expense categories
-- Store transaction history
-- Generate monthly reports
-- Add savings goals
-- Connect to a database
-- Create a graphical interface
-
-## 👨‍💻 Author
-
-Developed as a Java learning project.
-
-## ⭐ Support
-
-If you like this project, give the repository a star!
+Smart Expense Tracker provides a simple way to understand monthly spending habits. It helps users monitor expenses, identify their highest-spending category, and make better financial decisions.
