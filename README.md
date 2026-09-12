@@ -1,84 +1,140 @@
 # 💰 Smart Expense Tracker
 
-A professional Java console application designed to monitor monthly expenses, analyze spending habits, calculate savings, and provide intelligent financial alerts.
+A professional Java console-based financial toolkit that helps users track expenses, plan monthly budgets, set savings goals, and build an emergency fund.
 
-This repository contains both the **basic version** and the **advanced version** of the Smart Expense Tracker, demonstrating the gradual improvement of the project.
+This repository preserves the original beginner program while demonstrating its gradual development into a collection of practical personal-finance applications.
 
 ---
 
 ## 📌 Problem Statement
 
-Many people struggle to understand where their monthly income is being spent. Manually calculating expenses can make it difficult to monitor spending, identify costly categories, and maintain sufficient savings.
+Many people find it difficult to manage their income, monitor expenses, maintain savings, and prepare for financial emergencies.
 
-The **Smart Expense Tracker** solves this problem by recording monthly income and expenses, calculating the remaining balance, analyzing spending percentages, identifying the highest-spending category, and providing useful financial alerts.
+The **Smart Expense Tracker** provides simple Java-based tools that help users:
+
+- Track monthly spending
+- Analyze financial habits
+- Plan a monthly budget
+- Estimate savings-goal completion
+- Build an emergency fund
+- Make better financial decisions
 
 ---
 
-## 🚀 Project Versions
+## 🚀 Applications Included
 
 ### 🌱 1. Basic Expense Tracker
 
-The original beginner-friendly version of the application.
-
 📄 **File:** `src/BasicExpenseTracker.java`
 
-#### ✨ Basic Features
+The original version accepts monthly income and total expenses, calculates the remaining balance, and provides a basic spending warning.
 
-- 💵 Accepts monthly income
-- 🧾 Accepts total monthly expenses
-- 🧮 Calculates the remaining balance
-- ⚠️ Detects overspending
-- 📊 Warns when expenses exceed 80% of income
-- ✅ Displays the user's financial status
+#### ✨ Features
+
+- Accepts monthly income and expenses
+- Calculates the remaining balance
+- Detects overspending
+- Warns about high expenditure
+- Displays financial status
 
 ---
 
 ### 🧠 2. Advanced Smart Expense Tracker
 
-The upgraded version provides detailed category-based expense tracking and intelligent financial analysis.
-
 📄 **File:** `src/Main.java`
 
-#### ✨ Advanced Features
+The advanced version records category-based expenses and provides detailed financial analysis.
 
-- 💵 Accepts monthly income
-- 🍔 Records food expenses
-- 🚌 Records travel expenses
-- 🛍️ Records shopping expenses
-- 🧾 Records bill expenses
-- 🎓 Records education expenses
-- 📦 Records other expenses
-- 🧮 Calculates total monthly expenses
-- 💰 Calculates the remaining balance
-- 📊 Calculates spending percentage
-- 🏦 Calculates savings percentage
-- 🔝 Identifies the highest-spending category
-- ⚠️ Detects high spending
-- 🚨 Detects overspending
-- 💡 Provides smart financial suggestions
-- ✅ Validates income and expense values
-- 🖥️ Displays a formatted monthly summary
+#### ✨ Features
+
+- Records six expense categories
+- Calculates total expenses
+- Calculates remaining balance
+- Displays spending percentage
+- Displays savings percentage
+- Identifies the highest expense category
+- Detects high spending and overspending
+- Provides financial suggestions
+- Validates incorrect values
+
+---
+
+### 🎯 3. Savings Goal Planner
+
+📄 **File:** `src/SavingsGoalPlanner.java`
+
+Helps users estimate how long it will take to achieve a financial goal.
+
+#### ✨ Features
+
+- Accepts a savings target
+- Accepts current savings
+- Accepts monthly saving capacity
+- Calculates the remaining amount
+- Calculates goal progress
+- Estimates the required number of months
+- Displays goal-achievement guidance
+
+---
+
+### 🛡️ 4. Emergency Fund Calculator
+
+📄 **File:** `src/EmergencyFundCalculator.java`
+
+Calculates the emergency fund required to cover essential expenses for a selected number of months.
+
+#### ✨ Features
+
+- Accepts monthly essential expenses
+- Supports coverage between 3 and 12 months
+- Calculates the required emergency fund
+- Calculates current fund progress
+- Calculates the remaining amount
+- Displays emergency-fund status
+
+---
+
+### 📅 5. Monthly Budget Planner
+
+📄 **File:** `src/MonthlyBudgetPlanner.java`
+
+Creates a budget using the **50/30/20 rule**.
+
+| Budget Category | Percentage | Purpose |
+|---|---:|---|
+| 🏠 Needs | 50% | Rent, food, bills and essential expenses |
+| 🎉 Wants | 30% | Shopping, entertainment and optional expenses |
+| 🏦 Savings | 20% | Savings, investments and financial goals |
+
+#### ✨ Features
+
+- Accepts user name and monthly income
+- Calculates the monthly budget allocation
+- Creates a weekly budget guide
+- Separates needs, wants and savings
+- Provides savings suggestions
+- Validates incorrect income values
 
 ---
 
 ## 📊 Expense Categories
 
-| Symbol | Category | Description |
+| Symbol | Category | Examples |
 |:---:|---|---|
 | 🍔 | Food | Meals, groceries and snacks |
-| 🚌 | Travel | Fuel, bus, train and transportation |
-| 🛍️ | Shopping | Clothes, accessories and personal purchases |
-| 🧾 | Bills | Electricity, mobile, internet and other bills |
-| 🎓 | Education | Fees, books and learning expenses |
-| 📦 | Others | Expenses that do not belong to other categories |
+| 🚌 | Travel | Fuel and transportation |
+| 🛍️ | Shopping | Clothes and personal purchases |
+| 🧾 | Bills | Electricity, mobile and internet |
+| 🎓 | Education | Fees, books and courses |
+| 📦 | Others | Additional expenses |
 
 ---
 
-## 🚦 Financial Status Rules
+## 🚦 Spending Status Rules
 
-| Spending Condition | Financial Status |
+| Condition | Status |
 |---|---|
-| Expenses exceed monthly income | 🚨 Overspending |
+| Expenses exceed income | 🚨 Overspending |
 | Spending is 80% or more | ⚠️ High Spending |
 | Spending is between 50% and 79.99% | 📊 Moderate Spending |
 | Spending is below 50% | ✅ Spending Under Control |
@@ -89,7 +145,7 @@ The upgraded version provides detailed category-based expense tracking and intel
 
 - ☕ Java 17
 - 🖥️ Visual Studio Code
-- 📥 Java `Scanner`
+- 📥 Java Scanner
 - 🔀 Conditional statements
 - ➕ Arithmetic operators
 - 🧮 Percentage calculations
@@ -105,80 +161,71 @@ The upgraded version provides detailed category-based expense tracking and intel
 SmartExpense-Tracker/
 ├── src/
 │   ├── BasicExpenseTracker.java
-│   └── Main.java
+│   ├── EmergencyFundCalculator.java
+│   ├── Main.java
+│   ├── MonthlyBudgetPlanner.java
+│   └── SavingsGoalPlanner.java
 ├── .gitignore
 └── README.md
 ```
 
 ---
 
-## ▶️ How to Run
+## ▶️ How to Compile
 
-### 1️⃣ Compile Both Programs
+Compile all Java programs:
 
 ```powershell
-javac -encoding UTF-8 -d out src\BasicExpenseTracker.java src\Main.java
+javac -encoding UTF-8 -d out src\BasicExpenseTracker.java src\EmergencyFundCalculator.java src\Main.java src\MonthlyBudgetPlanner.java src\SavingsGoalPlanner.java
 ```
 
-### 2️⃣ Run the Basic Version
+---
+
+## ▶️ How to Run
+
+### 🌱 Basic Expense Tracker
 
 ```powershell
 java -cp out BasicExpenseTracker
 ```
 
-### 3️⃣ Run the Advanced Version
+### 🧠 Advanced Smart Expense Tracker
 
 ```powershell
 java -cp out Main
 ```
 
----
+### 🎯 Savings Goal Planner
 
-## 📸 Advanced Version Sample Output
+```powershell
+java -cp out SavingsGoalPlanner
+```
 
-```text
-================================
-     SMART EXPENSE TRACKER
-================================
-Enter monthly income: 65000
-Enter food expenses: 5000
-Enter travel expenses: 5000
-Enter shopping expenses: 10000
-Enter bill expenses: 3500
-Enter education expenses: 25000
-Enter other expenses: 4000
+### 🛡️ Emergency Fund Calculator
 
-========== MONTHLY SUMMARY ==========
-Monthly Income      : Rs. 65000.00
-Food Expenses       : Rs. 5000.00
-Travel Expenses     : Rs. 5000.00
-Shopping Expenses   : Rs. 10000.00
-Bill Expenses       : Rs. 3500.00
-Education Expenses  : Rs. 25000.00
-Other Expenses      : Rs. 4000.00
--------------------------------------
-Total Expenses      : Rs. 52500.00
-Remaining Balance   : Rs. 12500.00
-Spending Percentage : 80.77%
-Savings Percentage  : 19.23%
-Highest Category    : Education (Rs. 25000.00)
--------------------------------------
-Financial Status: HIGH SPENDING
-Alert: Try to reduce unnecessary expenses.
-=====================================
+```powershell
+java -cp out EmergencyFundCalculator
+```
+
+### 📅 Monthly Budget Planner
+
+```powershell
+java -cp out MonthlyBudgetPlanner
 ```
 
 ---
 
-## 🧠 Java Concepts Used
+## 🧠 Java Concepts Demonstrated
 
-- Variables and data types
+- Variables and primitive data types
 - User input using `Scanner`
-- Arithmetic calculations
-- `if-else` conditions
+- Arithmetic operators
+- Conditional statements
 - Logical operators
 - Input validation
 - Percentage calculations
+- Type casting
+- `Math.ceil()`
 - Formatted output using `printf`
 - Classes and main methods
 
@@ -186,25 +233,23 @@ Alert: Try to reduce unnecessary expenses.
 
 ## 📈 Project Development
 
-The project demonstrates gradual improvement through two versions:
-
-1. 🌱 Started with basic income and expense calculation
+1. 🌱 Created the basic expense tracker
 2. 📂 Added category-based expense tracking
-3. 📊 Added spending and savings percentage calculations
-4. 🔝 Added highest-expense category detection
-5. 🚨 Added intelligent financial alerts
-6. 📖 Added professional project documentation
+3. 📊 Added financial analysis and alerts
+4. 🎯 Added savings-goal planning
+5. 🛡️ Added emergency-fund calculation
+6. 📅 Added monthly budget allocation
+7. 📖 Added professional documentation
 
 ---
 
 ## 🔮 Future Enhancements
 
-- 💾 Save expense records in files
+- 💾 Save financial records in files
 - 🗃️ Connect the application to a database
-- 📅 Generate weekly and yearly reports
+- 📉 Generate expense charts
 - 🔐 Add user registration and login
-- 📉 Generate graphical expense charts
-- 🖼️ Create a Java Swing or JavaFX interface
+- 🖼️ Build a Java Swing or JavaFX interface
 - 🌐 Develop a web-based version
 - 📱 Create a mobile application
 
@@ -212,7 +257,13 @@ The project demonstrates gradual improvement through two versions:
 
 ## ✅ Conclusion
 
-The **Smart Expense Tracker** provides a simple and effective way to monitor monthly spending. By preserving both the basic and advanced versions, this repository also demonstrates how a beginner-level Java program can gradually evolve into a more useful and professional application.
+The **Smart Expense Tracker** demonstrates how beginner-friendly Java concepts can be applied to real-world personal-finance problems. The project contains multiple tools for tracking expenses, planning budgets, achieving savings goals, and preparing for emergencies.
+
+---
+
+## 👨‍💻 Maintainer
+
+**koushik8369-ux**
 
 ---
 
