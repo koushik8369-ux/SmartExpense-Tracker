@@ -164,7 +164,10 @@ SmartExpense-Tracker/
 │   ├── EmergencyFundCalculator.java
 │   ├── Main.java
 │   ├── MonthlyBudgetPlanner.java
-│   └── SavingsGoalPlanner.java
+│   ├── SavingsGoalPlanner.java
+│   ├── DailyExpenseLimitCalculator.java
+│   ├── DebtRepaymentPlanner.java
+│   └── SubscriptionExpenseCalculator.java
 ├── .gitignore
 └── README.md
 ```
@@ -176,7 +179,7 @@ SmartExpense-Tracker/
 Compile all Java programs:
 
 ```powershell
-javac -encoding UTF-8 -d out src\BasicExpenseTracker.java src\EmergencyFundCalculator.java src\Main.java src\MonthlyBudgetPlanner.java src\SavingsGoalPlanner.java
+javac -encoding UTF-8 -d out src\*.java
 ```
 
 ---
@@ -243,6 +246,60 @@ java -cp out MonthlyBudgetPlanner
 
 ---
 
+## 🆕 Latest Financial Tools
+
+### 💸 6. Debt Repayment Planner
+
+📄 **File:** `src/DebtRepaymentPlanner.java`
+
+Calculates loan interest, estimated repayment duration, and total payment based on the user's monthly payment capacity.
+
+#### ✨ Features
+
+- Calculates total loan interest
+- Estimates repayment duration
+- Detects insufficient monthly payments
+- Provides debt-repayment suggestions
+
+Run: `java -cp out DebtRepaymentPlanner`
+
+---
+
+### 📺 7. Subscription Expense Calculator
+
+📄 **File:** `src/SubscriptionExpenseCalculator.java`
+
+Analyzes recurring subscriptions and calculates their monthly and annual financial impact.
+
+#### ✨ Features
+
+- Records multiple subscription categories
+- Calculates monthly and annual costs
+- Identifies the highest-cost subscription
+- Calculates the percentage of income used
+- Provides subscription-spending alerts
+
+Run: `java -cp out SubscriptionExpenseCalculator`
+
+---
+
+### 📆 8. Daily Expense Limit Calculator
+
+📄 **File:** `src/DailyExpenseLimitCalculator.java`
+
+Calculates a recommended daily spending limit after allocating money for fixed expenses and savings.
+
+#### ✨ Features
+
+- Calculates flexible monthly budget
+- Calculates weekly and daily spending limits
+- Validates the number of days
+- Detects budget shortages
+- Provides daily-spending guidance
+
+Run: `java -cp out DailyExpenseLimitCalculator`
+
+---
 ## 🔮 Future Enhancements
 
 - 💾 Save financial records in files
