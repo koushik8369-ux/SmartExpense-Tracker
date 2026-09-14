@@ -167,7 +167,10 @@ SmartExpense-Tracker/
 │   ├── SavingsGoalPlanner.java
 │   ├── DailyExpenseLimitCalculator.java
 │   ├── DebtRepaymentPlanner.java
-│   └── SubscriptionExpenseCalculator.java
+│   ├── SubscriptionExpenseCalculator.java
+│   ├── CreditCardUsageAlert.java
+│   ├── FixedDepositCalculator.java
+│   └── SalaryAllocationPlanner.java
 ├── .gitignore
 └── README.md
 ```
@@ -298,6 +301,67 @@ Calculates a recommended daily spending limit after allocating money for fixed e
 - Provides daily-spending guidance
 
 Run: `java -cp out DailyExpenseLimitCalculator`
+
+---
+## 📈 Investment, Salary and Credit Tools
+
+### 🏦 9. Fixed Deposit Maturity Calculator
+
+📄 **File:** `src/FixedDepositCalculator.java`
+
+Calculates the maturity value of a fixed deposit using compound interest.
+
+#### ✨ Features
+
+- Accepts deposit amount and interest rate
+- Supports yearly, half-yearly and quarterly compounding
+- Calculates total interest earned
+- Calculates final maturity amount
+- Displays investment growth percentage
+- Identifies short, medium and long-term deposits
+
+Run: `java -cp out FixedDepositCalculator`
+
+---
+
+### 💼 10. Salary Allocation Planner
+
+📄 **File:** `src/SalaryAllocationPlanner.java`
+
+Calculates take-home salary and creates a recommended allocation plan for monthly income.
+
+#### ✨ Features
+
+- Accepts gross salary and deductions
+- Calculates net salary
+- Calculates deduction percentage
+- Allocates money for essential expenses
+- Allocates money for savings and investments
+- Allocates money for personal use and emergencies
+- Detects high salary deductions
+
+Run: `java -cp out SalaryAllocationPlanner`
+
+---
+
+### 💳 11. Credit Card Usage Alert
+
+📄 **File:** `src/CreditCardUsageAlert.java`
+
+Monitors credit-card usage and provides alerts based on credit utilization.
+
+#### ✨ Features
+
+- Records credit limit and outstanding amount
+- Checks whether a new purchase is affordable
+- Calculates updated outstanding balance
+- Calculates remaining available credit
+- Calculates credit-utilization percentage
+- Calculates minimum payment
+- Detects high and critical credit usage
+- Rejects purchases exceeding the credit limit
+
+Run: `java -cp out CreditCardUsageAlert`
 
 ---
 ## 🔮 Future Enhancements
