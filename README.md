@@ -170,7 +170,10 @@ SmartExpense-Tracker/
 │   ├── SubscriptionExpenseCalculator.java
 │   ├── CreditCardUsageAlert.java
 │   ├── FixedDepositCalculator.java
-│   └── SalaryAllocationPlanner.java
+│   ├── SalaryAllocationPlanner.java
+│   ├── InsurancePremiumEstimator.java
+│   ├── LoanEligibilityChecker.java
+│   └── SIPInvestmentCalculator.java
 ├── .gitignore
 └── README.md
 ```
@@ -362,6 +365,72 @@ Monitors credit-card usage and provides alerts based on credit utilization.
 - Rejects purchases exceeding the credit limit
 
 Run: `java -cp out CreditCardUsageAlert`
+
+---
+## 🚀 Investment, Loan and Insurance Tools
+
+### 📈 12. SIP Investment Calculator
+
+📄 **File:** `src/SIPInvestmentCalculator.java`
+
+Estimates the future value of monthly Systematic Investment Plan contributions using compound growth.
+
+#### ✨ Features
+
+- Accepts monthly investment amount
+- Accepts expected annual return
+- Supports different investment durations
+- Calculates total amount invested
+- Calculates estimated investment returns
+- Calculates expected maturity amount
+- Displays investment growth percentage
+- Provides duration-based guidance
+
+Run: `java -cp out SIPInvestmentCalculator`
+
+---
+
+### 🏠 13. Home Loan Eligibility Checker
+
+📄 **File:** `src/LoanEligibilityChecker.java`
+
+Calculates the estimated home-loan EMI and checks repayment eligibility using monthly income and existing financial obligations.
+
+#### ✨ Features
+
+- Accepts income and existing EMI
+- Calculates estimated new EMI
+- Calculates total monthly EMI
+- Calculates debt-to-income ratio
+- Applies a safe 50% EMI limit
+- Displays remaining monthly income
+- Determines loan eligibility
+- Provides repayment suggestions
+
+Run: `java -cp out LoanEligibilityChecker`
+
+---
+
+### 🛡️ 14. Health Insurance Premium Estimator
+
+📄 **File:** `src/InsurancePremiumEstimator.java`
+
+Provides an educational insurance-premium estimate using age, coverage, smoking status, and existing medical conditions.
+
+#### ✨ Features
+
+- Accepts applicant and coverage details
+- Calculates base insurance premium
+- Applies age-based charges
+- Applies smoking and medical-condition charges
+- Calculates annual premium
+- Calculates monthly premium
+- Displays estimated risk level
+- Validates incorrect input
+
+Run: `java -cp out InsurancePremiumEstimator`
+
+> **Note:** The calculated premium is an educational estimate. Actual premiums depend on the insurance provider and policy conditions.
 
 ---
 ## 🔮 Future Enhancements
