@@ -26,8 +26,7 @@ public class CreditCardUsageAlert {
             return;
         }
 
-        if (creditLimit <= 0 || currentOutstanding < 0 ||
-                newPurchase < 0) {
+        if (creditLimit <= 0 || currentOutstanding < 0 || newPurchase < 0) {
             System.out.println("Please enter valid credit-card details.");
             scanner.close();
             return;
@@ -67,27 +66,38 @@ public class CreditCardUsageAlert {
         double remainingCredit =
                 creditLimit - updatedOutstanding;
 
+        double usageBeforePurchase =
+                (currentOutstanding / creditLimit) * 100;
+
         double usagePercentage =
                 (updatedOutstanding / creditLimit) * 100;
+
+        double usageIncrease =
+                usagePercentage - usageBeforePurchase;
 
         double minimumPayment =
                 updatedOutstanding * 0.05;
 
         System.out.println();
         System.out.println("----------- CREDIT SUMMARY -----------");
-        System.out.printf("Cardholder          : %s%n", cardholderName);
-        System.out.printf("Credit Limit        : Rs. %.2f%n", creditLimit);
-        System.out.printf("Previous Outstanding: Rs. %.2f%n",
+        System.out.printf("Cardholder           : %s%n", cardholderName);
+        System.out.printf("Credit Limit         : Rs. %.2f%n", creditLimit);
+        System.out.printf("Previous Outstanding : Rs. %.2f%n",
                 currentOutstanding);
-        System.out.printf("New Purchase        : Rs. %.2f%n", newPurchase);
+        System.out.printf("New Purchase         : Rs. %.2f%n",
+                newPurchase);
         System.out.println("--------------------------------------");
-        System.out.printf("Updated Outstanding : Rs. %.2f%n",
+        System.out.printf("Updated Outstanding  : Rs. %.2f%n",
                 updatedOutstanding);
-        System.out.printf("Remaining Credit    : Rs. %.2f%n",
+        System.out.printf("Remaining Credit     : Rs. %.2f%n",
                 remainingCredit);
-        System.out.printf("Credit Utilization  : %.2f%%%n",
+        System.out.printf("Usage Before Purchase: %.2f%%%n",
+                usageBeforePurchase);
+        System.out.printf("Credit Utilization   : %.2f%%%n",
                 usagePercentage);
-        System.out.printf("Minimum Payment     : Rs. %.2f%n",
+        System.out.printf("Usage Increase       : %.2f%%%n",
+                usageIncrease);
+        System.out.printf("Minimum Payment      : Rs. %.2f%n",
                 minimumPayment);
         System.out.println("--------------------------------------");
 
