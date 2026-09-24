@@ -1,4 +1,4 @@
-import java.util.Scanner;
+﻿import java.util.Scanner;
 
 public class FixedDepositCalculator {
     public static void main(String[] args) {
@@ -60,7 +60,7 @@ public class FixedDepositCalculator {
         );
 
         double interestEarned = maturityAmount - principal;
-        double growthPercentage = (interestEarned / principal) * 100;
+        double growthPercentage = (interestEarned / principal) * 100;`r`ndouble effectiveAnnualGrowth = (Math.pow(maturityAmount / principal, 1.0 / years) - 1) * 100;
 
         System.out.println();
         System.out.println("---------- DEPOSIT SUMMARY ----------");
@@ -71,7 +71,7 @@ public class FixedDepositCalculator {
         System.out.println("-------------------------------------");
         System.out.printf("Interest Earned   : Rs. %.2f%n", interestEarned);
         System.out.printf("Maturity Amount   : Rs. %.2f%n", maturityAmount);
-        System.out.printf("Investment Growth : %.2f%%%n", growthPercentage);
+        System.out.printf("Investment Growth : %.2f%%%n", growthPercentage);`r`n        System.out.printf("Effective Annual Growth: %.2f%%%n", effectiveAnnualGrowth);
         System.out.println("-------------------------------------");
 
         if (years >= 5) {
