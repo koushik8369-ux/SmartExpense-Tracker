@@ -1,4 +1,4 @@
-import java.util.Scanner;
+﻿import java.util.Scanner;
 
 public class DailyExpenseLimitCalculator {
     public static void main(String[] args) {
@@ -53,14 +53,14 @@ public class DailyExpenseLimitCalculator {
         double flexibleBudget = income - committedAmount;
         double dailyLimit = flexibleBudget / daysInMonth;
         double weeklyLimit = dailyLimit * 7;
-        double savingsPercentage = (savingsTarget / income) * 100;
+        double savingsPercentage = (savingsTarget / income) * 100;`r`ndouble yearlySavingsProjection = savingsTarget * 12;
 
         System.out.println();
         System.out.println("--------- DAILY BUDGET REPORT ---------");
         System.out.printf("Monthly Income      : Rs. %.2f%n", income);
         System.out.printf("Fixed Expenses      : Rs. %.2f%n", fixedExpenses);
         System.out.printf("Savings Target      : Rs. %.2f%n", savingsTarget);
-        System.out.printf("Savings Percentage  : %.2f%%%n", savingsPercentage);
+        System.out.printf("Savings Percentage  : %.2f%%%n", savingsPercentage);`r`n        System.out.printf("Yearly Savings Goal : Rs. %.2f%n", yearlySavingsProjection);
         System.out.println("---------------------------------------");
         System.out.printf("Flexible Budget     : Rs. %.2f%n", flexibleBudget);
         System.out.printf("Weekly Limit        : Rs. %.2f%n", weeklyLimit);
