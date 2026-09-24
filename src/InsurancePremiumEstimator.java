@@ -1,4 +1,4 @@
-import java.util.Scanner;
+﻿import java.util.Scanner;
 
 public class InsurancePremiumEstimator {
     public static void main(String[] args) {
@@ -78,7 +78,7 @@ public class InsurancePremiumEstimator {
                 basePremium + ageCharge
                 + smokingCharge + medicalCharge;
 
-        double monthlyPremium = annualPremium / 12;
+        double monthlyPremium = annualPremium / 12;`r`ndouble totalPremiumForFiveYears = annualPremium * 5;
 
         System.out.println();
         System.out.println("--------- PREMIUM ESTIMATE ---------");
