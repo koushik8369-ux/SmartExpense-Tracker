@@ -444,7 +444,6 @@ Run: `java -cp out InsurancePremiumEstimator`
 - 📱 Create a mobile application
 
 ---
-
 ## ✅ Conclusion
 
 The **Smart Expense Tracker** demonstrates how beginner-friendly Java concepts can be applied to real-world personal-finance problems. The project contains multiple tools for tracking expenses, planning budgets, achieving savings goals, and preparing for emergencies.
