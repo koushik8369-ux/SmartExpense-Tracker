@@ -7,7 +7,6 @@ This repository preserves the original beginner program while demonstrating its 
 ---
 
 ## 📌 Problem Statement
-
 Many people find it difficult to manage their income, monitor expenses, maintain savings, and prepare for financial emergencies.
 
 The **Smart Expense Tracker** provides simple Java-based tools that help users:
