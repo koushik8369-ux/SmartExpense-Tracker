@@ -7,7 +7,7 @@ public class ExpenseManager {
 
     public void showExpense() {
         System.out.println("Managed Expense Details:");
-        expense.display();
+        expense.displayExpense();
     }
 
     public static void main(String[] args) {
