@@ -22,8 +22,9 @@ public class SavingsAccount {
     }
 
     public static void main(String[] args) {
-        SavingsAccount account = new SavingsAccount("Hima", 1000);
+        SavingsAccount account = new SavingsAccount("Koushik", 1000);
         account.deposit(500);
         account.displayBalance();
     }
 }
+
