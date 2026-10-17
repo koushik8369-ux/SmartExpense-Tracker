@@ -1,66 +1,61 @@
 import java.util.Scanner;
 
 public class SubscriptionExpenseCalculator {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("====================================");
-        System.out.println("  SUBSCRIPTION EXPENSE CALCULATOR");
-        System.out.println("====================================");
+    private double income;
+    private double ott;
+    private double music;
+    private double cloudStorage;
+    private double gym;
+    private double others;
 
-        System.out.print("Enter monthly income: Rs. ");
-        double income = scanner.nextDouble();
+    public SubscriptionExpenseCalculator(double income, double ott,
+            double music, double cloudStorage, double gym, double others) {
+        this.income = income;
+        this.ott = ott;
+        this.music = music;
+        this.cloudStorage = cloudStorage;
+        this.gym = gym;
+        this.others = others;
+    }
 
-        System.out.print("Enter OTT subscription cost: Rs. ");
-        double ott = scanner.nextDouble();
+    public double calculateMonthlyTotal() {
+        return ott + music + cloudStorage + gym + others;
+    }
 
-        System.out.print("Enter music subscription cost: Rs. ");
-        double music = scanner.nextDouble();
+    public double calculateAnnualTotal() {
+        return calculateMonthlyTotal() * 12;
+    }
 
-        System.out.print("Enter cloud storage cost: Rs. ");
-        double cloudStorage = scanner.nextDouble();
+    public double calculateIncomePercentage() {
+        return calculateMonthlyTotal() / income * 100;
+    }
 
-        System.out.print("Enter gym membership cost: Rs. ");
-        double gym = scanner.nextDouble();
+    public String findHighestSubscription() {
+        String name = "OTT";
+        double highest = ott;
 
-        System.out.print("Enter other subscription costs: Rs. ");
-        double others = scanner.nextDouble();
-
-        if (income <= 0 || ott < 0 || music < 0 ||
-                cloudStorage < 0 || gym < 0 || others < 0) {
-            System.out.println("Please enter valid income and subscription amounts.");
-            scanner.close();
-            return;
+        if (music > highest) {
+            highest = music;
+            name = "Music";
+        }
+        if (cloudStorage > highest) {
+            highest = cloudStorage;
+            name = "Cloud Storage";
+        }
+        if (gym > highest) {
+            highest = gym;
+            name = "Gym";
+        }
+        if (others > highest) {
+            name = "Others";
         }
 
-        double monthlyTotal =
-                ott + music + cloudStorage + gym + others;
+        return name;
+    }
 
-        double annualTotal = monthlyTotal * 12;
-        double incomePercentage = (monthlyTotal / income) * 100;
-
-        String highestSubscription = "OTT";
-        double highestCost = ott;
-
-        if (music > highestCost) {
-            highestCost = music;
-            highestSubscription = "Music";
-        }
-
-        if (cloudStorage > highestCost) {
-            highestCost = cloudStorage;
-            highestSubscription = "Cloud Storage";
-        }
-
-        if (gym > highestCost) {
-            highestCost = gym;
-            highestSubscription = "Gym";
-        }
-
-        if (others > highestCost) {
-            highestCost = others;
-            highestSubscription = "Others";
-        }
+    public void displayReport() {
+        double monthlyTotal = calculateMonthlyTotal();
 
         System.out.println();
         System.out.println("-------- SUBSCRIPTION SUMMARY --------");
@@ -71,24 +66,74 @@ public class SubscriptionExpenseCalculator {
         System.out.printf("Other Subscriptions  : Rs. %.2f%n", others);
         System.out.println("--------------------------------------");
         System.out.printf("Monthly Total        : Rs. %.2f%n", monthlyTotal);
-        System.out.printf("Annual Total         : Rs. %.2f%n", annualTotal);
-        System.out.printf("Income Used          : %.2f%%%n", incomePercentage);
-        System.out.printf("Highest Subscription : %s (Rs. %.2f)%n",
-                highestSubscription, highestCost);
-        System.out.println("--------------------------------------");
+        System.out.printf("Annual Total         : Rs. %.2f%n", calculateAnnualTotal());
+        System.out.printf("Income Used          : %.2f%%%n", calculateIncomePercentage());
+        System.out.printf("Highest Subscription : %s%n", findHighestSubscription());
 
         if (monthlyTotal == 0) {
             System.out.println("Status: No subscription expenses recorded.");
-        } else if (incomePercentage > 10) {
+        } else if (calculateIncomePercentage() > 10) {
             System.out.println("Alert: Subscription spending is high.");
-            System.out.println("Suggestion: Cancel subscriptions you rarely use.");
-        } else if (incomePercentage > 5) {
+            System.out.println("Suggestion: Review subscriptions you rarely use.");
+        } else if (calculateIncomePercentage() > 5) {
             System.out.println("Status: Subscription spending is moderate.");
         } else {
             System.out.println("Status: Subscription spending is under control.");
         }
+    }
 
-        System.out.println("======================================");
-        scanner.close();
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String[] prompts = {
+            "Enter monthly income: Rs. ",
+            "Enter OTT subscription cost: Rs. ",
+            "Enter music subscription cost: Rs. ",
+            "Enter cloud storage cost: Rs. ",
+            "Enter gym membership cost: Rs. ",
+            "Enter other subscription costs: Rs. "
+        };
+
+        double[] values = new double[prompts.length];
+
+        for (int i = 0; i < prompts.length; i++) {
+            System.out.print(prompts[i]);
+
+            if (!sc.hasNextDouble()) {
+                System.out.println("Please enter a valid number.");
+                sc.close();
+                return;
+            }
+
+            values[i] = sc.nextDouble();
+
+            if (!Double.isFinite(values[i])) {
+                System.out.println("Please enter a finite number.");
+                sc.close();
+                return;
+            }
+        }
+
+        if (values[0] <= 0) {
+            System.out.println("Monthly income must be greater than zero.");
+            sc.close();
+            return;
+        }
+
+        for (int i = 1; i < values.length; i++) {
+            if (values[i] < 0) {
+                System.out.println("Subscription costs cannot be negative.");
+                sc.close();
+                return;
+            }
+        }
+
+        SubscriptionExpenseCalculator calculator =
+                new SubscriptionExpenseCalculator(
+                        values[0], values[1], values[2],
+                        values[3], values[4], values[5]);
+
+        calculator.displayReport();
+        sc.close();
     }
 }
