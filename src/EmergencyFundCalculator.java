@@ -1,66 +1,96 @@
 import java.util.Scanner;
 
 public class EmergencyFundCalculator {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("================================");
-        System.out.println("   EMERGENCY FUND CALCULATOR");
-        System.out.println("================================");
+    private double monthlyExpenses;
+    private double currentFund;
+    private int coverageMonths;
 
-        System.out.print("Enter monthly essential expenses: Rs. ");
-        double monthlyExpenses = scanner.nextDouble();
+    public EmergencyFundCalculator(double monthlyExpenses,
+            double currentFund, int coverageMonths) {
+        this.monthlyExpenses = monthlyExpenses;
+        this.currentFund = currentFund;
+        this.coverageMonths = coverageMonths;
+    }
 
-        System.out.print("Enter current emergency savings: Rs. ");
-        double currentFund = scanner.nextDouble();
+    public double calculateRequiredFund() {
+        return monthlyExpenses * coverageMonths;
+    }
 
-        System.out.print("Enter desired coverage in months (3 to 12): ");
-        int coverageMonths = scanner.nextInt();
+    public double calculateRemainingAmount() {
+        return Math.max(0, calculateRequiredFund() - currentFund);
+    }
 
-        if (monthlyExpenses <= 0 || currentFund < 0) {
-            System.out.println("Please enter valid financial amounts.");
-            scanner.close();
-            return;
-        }
+    public double calculateProgress() {
+        return Math.min(100, currentFund / calculateRequiredFund() * 100);
+    }
 
-        if (coverageMonths < 3 || coverageMonths > 12) {
-            System.out.println("Coverage period must be between 3 and 12 months.");
-            scanner.close();
-            return;
-        }
-
-        double requiredFund = monthlyExpenses * coverageMonths;
-        double remainingAmount = requiredFund - currentFund;
-        double progress = (currentFund / requiredFund) * 100;
-
-        if (progress > 100) {
-            progress = 100;
-        }
+    public void displayReport() {
+        double progress = calculateProgress();
 
         System.out.println();
         System.out.println("------- EMERGENCY FUND REPORT -------");
-        System.out.printf("Monthly Expenses  : Rs. %.2f%n", monthlyExpenses);
-        System.out.printf("Coverage Period   : %d month(s)%n", coverageMonths);
-        System.out.printf("Required Fund     : Rs. %.2f%n", requiredFund);
-        System.out.printf("Current Fund      : Rs. %.2f%n", currentFund);
-        System.out.printf("Fund Progress     : %.2f%%%n", progress);
+        System.out.printf("Monthly Expenses : Rs. %.2f%n", monthlyExpenses);
+        System.out.printf("Coverage Period  : %d month(s)%n", coverageMonths);
+        System.out.printf("Required Fund    : Rs. %.2f%n", calculateRequiredFund());
+        System.out.printf("Current Fund     : Rs. %.2f%n", currentFund);
+        System.out.printf("Fund Progress    : %.2f%%%n", progress);
+        System.out.printf("Remaining Amount : Rs. %.2f%n", calculateRemainingAmount());
 
-        if (remainingAmount <= 0) {
-            System.out.println("Remaining Amount  : Rs. 0.00");
+        if (calculateRemainingAmount() == 0) {
             System.out.println("Status: Emergency fund target achieved!");
+        } else if (progress >= 75) {
+            System.out.println("Status: You are close to your target.");
+        } else if (progress >= 40) {
+            System.out.println("Status: Your emergency fund is growing.");
         } else {
-            System.out.printf("Remaining Amount  : Rs. %.2f%n", remainingAmount);
+            System.out.println("Status: Prioritize building your emergency fund.");
+        }
+    }
 
-            if (progress >= 75) {
-                System.out.println("Status: You are close to your target.");
-            } else if (progress >= 40) {
-                System.out.println("Status: Your emergency fund is growing.");
-            } else {
-                System.out.println("Status: Prioritize building your emergency fund.");
-            }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter monthly essential expenses: Rs. ");
+        if (!sc.hasNextDouble()) {
+            System.out.println("Enter a valid number.");
+            sc.close();
+            return;
+        }
+        double expenses = sc.nextDouble();
+
+        System.out.print("Enter current emergency savings: Rs. ");
+        if (!sc.hasNextDouble()) {
+            System.out.println("Enter a valid number.");
+            sc.close();
+            return;
+        }
+        double fund = sc.nextDouble();
+
+        System.out.print("Enter desired coverage in months (3 to 12): ");
+        if (!sc.hasNextInt()) {
+            System.out.println("Enter a whole number of months.");
+            sc.close();
+            return;
+        }
+        int months = sc.nextInt();
+
+        if (!Double.isFinite(expenses) || !Double.isFinite(fund)
+                || expenses <= 0 || fund < 0) {
+            System.out.println("Enter valid, non-negative financial amounts.");
+            sc.close();
+            return;
         }
 
-        System.out.println("=====================================");
-        scanner.close();
+        if (months < 3 || months > 12) {
+            System.out.println("Coverage must be between 3 and 12 months.");
+            sc.close();
+            return;
+        }
+
+        EmergencyFundCalculator calculator =
+                new EmergencyFundCalculator(expenses, fund, months);
+        calculator.displayReport();
+        sc.close();
     }
 }
