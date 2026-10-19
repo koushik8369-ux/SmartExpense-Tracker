@@ -18,14 +18,30 @@ public class DailySavingGoalChecker {
         return Math.abs(saved - goal);
     }
 
+    public double calculateProgress() {
+        return Math.min((saved / goal) * 100, 100);
+    }
+
     public void displayResult() {
+        System.out.println();
+        System.out.println("===== DAILY SAVINGS REPORT =====");
+        System.out.printf("Daily Saving Goal : Rs. %.2f%n", goal);
+        System.out.printf("Amount Saved      : Rs. %.2f%n", saved);
+        System.out.printf("Goal Progress     : %.2f%%%n",
+                calculateProgress());
+
         if (isGoalAchieved()) {
-            System.out.println("Saving goal achieved!");
-            System.out.printf("Extra saved: Rs. %.2f%n", getDifference());
+            System.out.println("Status: Saving Goal Achieved!");
+            System.out.printf("Extra Saved       : Rs. %.2f%n",
+                    getDifference());
         } else {
-            System.out.println("Saving goal not achieved.");
-            System.out.printf("Amount needed: Rs. %.2f%n", getDifference());
+            System.out.println("Status: Goal Not Yet Achieved");
+            System.out.printf("Amount Still Needed: Rs. %.2f%n",
+                    getDifference());
+            System.out.println("Suggestion: Save a little more if possible.");
         }
+
+        System.out.println("================================");
     }
 
     public static void main(String[] args) {
@@ -47,8 +63,10 @@ public class DailySavingGoalChecker {
         }
         double saved = sc.nextDouble();
 
-        if (goal < 0 || saved < 0) {
-            System.out.println("Amounts cannot be negative.");
+        if (!Double.isFinite(goal) || !Double.isFinite(saved)
+                || goal <= 0 || saved < 0) {
+            System.out.println("Goal must be positive and savings "
+                    + "must be non-negative valid amounts.");
             sc.close();
             return;
         }
