@@ -18,14 +18,32 @@ public class GroceryBudgetChecker {
         return Math.abs(budget - expense);
     }
 
-    public void displayResult() {
-        if (isWithinBudget()) {
-            System.out.println("Grocery expense is within budget.");
-            System.out.printf("Remaining: Rs. %.2f%n", calculateDifference());
-        } else {
-            System.out.println("Grocery budget exceeded.");
-            System.out.printf("Extra amount: Rs. %.2f%n", calculateDifference());
+    public double calculateUtilization() {
+        if (budget == 0) {
+            return expense == 0 ? 0 : 100;
         }
+        return (expense / budget) * 100;
+    }
+
+    public void displayResult() {
+        System.out.println();
+        System.out.println("===== GROCERY BUDGET REPORT =====");
+        System.out.printf("Budget            : Rs. %.2f%n", budget);
+        System.out.printf("Actual Expense    : Rs. %.2f%n", expense);
+        System.out.printf("Budget Utilization: %.2f%%%n",
+                calculateUtilization());
+
+        if (isWithinBudget()) {
+            System.out.printf("Remaining Amount  : Rs. %.2f%n",
+                    calculateDifference());
+            System.out.println("Status: Within Budget");
+        } else {
+            System.out.printf("Exceeded Amount   : Rs. %.2f%n",
+                    calculateDifference());
+            System.out.println("Status: Budget Exceeded");
+        }
+
+        System.out.println("=================================");
     }
 
     public static void main(String[] args) {
@@ -47,13 +65,15 @@ public class GroceryBudgetChecker {
         }
         double expense = sc.nextDouble();
 
-        if (budget < 0 || expense < 0) {
-            System.out.println("Amounts cannot be negative.");
+        if (!Double.isFinite(budget) || !Double.isFinite(expense)
+                || budget < 0 || expense < 0) {
+            System.out.println("Enter finite, non-negative amounts.");
             sc.close();
             return;
         }
 
-        GroceryBudgetChecker checker = new GroceryBudgetChecker(budget, expense);
+        GroceryBudgetChecker checker =
+                new GroceryBudgetChecker(budget, expense);
         checker.displayResult();
 
         sc.close();
