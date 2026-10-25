@@ -1,62 +1,27 @@
 import java.util.Scanner;
 
 public class EmergencyExpenseChecker {
-    private double emergencyFund;
-    private double emergencyCost;
-
-    public EmergencyExpenseChecker(double emergencyFund, double emergencyCost) {
-        this.emergencyFund = emergencyFund;
-        this.emergencyCost = emergencyCost;
-    }
-
-    public double calculateBalance() {
-        return emergencyFund - emergencyCost;
-    }
-
-    public void displayReport() {
-        double balance = calculateBalance();
-
-        System.out.println("\n--- Emergency Expense Report ---");
-        System.out.printf("Available Fund: Rs. %.2f%n", emergencyFund);
-        System.out.printf("Emergency Cost: Rs. %.2f%n", emergencyCost);
-
-        if (balance >= 0) {
-            System.out.printf("Remaining Fund: Rs. %.2f%n", balance);
-            System.out.println("Your emergency fund covers this expense.");
-        } else {
-            System.out.printf("Additional Money Needed: Rs. %.2f%n",
-                    Math.abs(balance));
-            System.out.println("Your emergency fund is insufficient.");
-        }
-    }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter available emergency fund: Rs. ");
-        if (!sc.hasNextDouble()) {
-            System.out.println("Invalid fund amount.");
-            sc.close();
-            return;
-        }
+        System.out.print("Enter your emergency fund (Rs.): ");
         double fund = sc.nextDouble();
 
-        System.out.print("Enter emergency expense: Rs. ");
-        if (!sc.hasNextDouble()) {
-            System.out.println("Invalid expense.");
-            sc.close();
-            return;
-        }
-        double cost = sc.nextDouble();
+        System.out.print("Enter the emergency expense (Rs.): ");
+        double expense = sc.nextDouble();
 
-        if (!Double.isFinite(fund) || !Double.isFinite(cost)
-                || fund < 0 || cost < 0) {
-            System.out.println("Enter valid non-negative amounts.");
-            sc.close();
-            return;
+        if (fund < 0 || expense < 0) {
+            System.out.println("Invalid input. Amounts cannot be negative.");
+        } else if (expense <= fund) {
+            double remaining = fund - expense;
+            System.out.println("Emergency expense is affordable.");
+            System.out.printf("Remaining fund: Rs. %.2f%n", remaining);
+        } else {
+            double shortage = expense - fund;
+            System.out.println("Warning: Emergency fund is insufficient.");
+            System.out.printf("Additional amount needed: Rs. %.2f%n", shortage);
         }
 
-        new EmergencyExpenseChecker(fund, cost).displayReport();
         sc.close();
     }
 }
