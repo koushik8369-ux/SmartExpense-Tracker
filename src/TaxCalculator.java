@@ -14,11 +14,7 @@ public class TaxCalculator {
         double tax = income * taxPercent / 100;
         double afterTaxIncome = income - tax;
 
-        System.out.println("\n--- Tax Summary ---");
-        System.out.println("Income: Rs. " + income);
-        System.out.println("Tax Amount: Rs. " + tax);
-        System.out.println("Income After Tax: Rs. " + afterTaxIncome);
-
+       
         sc.close();
     }
 }
