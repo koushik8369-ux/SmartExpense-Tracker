@@ -410,28 +410,7 @@ Run: `java -cp out LoanEligibilityChecker`
 
 ---
 
-### 🛡️ 14. Health Insurance Premium Estimator
 
-📄 **File:** `src/InsurancePremiumEstimator.java`
-
-Provides an educational insurance-premium estimate using age, coverage, smoking status, and existing medical conditions.
-
-#### ✨ Features
-
-- Accepts applicant and coverage details
-- Calculates base insurance premium
-- Applies age-based charges
-- Applies smoking and medical-condition charges
-- Calculates annual premium
-- Calculates monthly premium
-- Displays estimated risk level
-- Validates incorrect input
-
-Run: `java -cp out InsurancePremiumEstimator`
-
-> **Note:** The calculated premium is an educational estimate. Actual premiums depend on the insurance provider and policy conditions.
-
----
 ## 🔮 Future Enhancements
 
 - 💾 Save financial records in files
