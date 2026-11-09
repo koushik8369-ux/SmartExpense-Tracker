@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class AnnualExpenseProjection {
-
     private double monthlyExpense;
 
     public AnnualExpenseProjection(double monthlyExpense) {
@@ -56,4 +55,3 @@ public class AnnualExpenseProjection {
         sc.close();
     }
 }
-
