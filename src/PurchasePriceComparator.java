@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class PurchasePriceComparator {
-
     private String productOne;
     private String productTwo;
     private double priceOne;
