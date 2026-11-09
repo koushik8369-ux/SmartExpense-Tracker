@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class UtilityBillPaymentTracker {
-
     private double electricityBill;
     private double waterBill;
     private double internetBill;
