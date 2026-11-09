@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class NoSpendChallengeTracker {
-
     private int challengeDays;
     private int completedDays;
     private double dailySavingTarget;
@@ -22,7 +21,7 @@ public class NoSpendChallengeTracker {
     }
 
     public double calculateProgress() {
-        return (completedDays * 100.0) / challengeDays;
+        return completedDays * 100.0 / challengeDays;
     }
 
     public void displayReport() {
@@ -78,7 +77,6 @@ public class NoSpendChallengeTracker {
 
         NoSpendChallengeTracker tracker =
                 new NoSpendChallengeTracker(days, completed, target);
-
         tracker.displayReport();
         sc.close();
     }
