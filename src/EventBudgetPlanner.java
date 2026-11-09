@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class EventBudgetPlanner {
-
     private double totalBudget;
     private double venueCost;
     private double foodCost;
@@ -79,7 +78,9 @@ public class EventBudgetPlanner {
 
         if (!Double.isFinite(budget) || !Double.isFinite(venue)
                 || !Double.isFinite(food) || !Double.isFinite(decoration)
-                || budget <= 0 || venue < 0 || food < 0 || decoration < 0) {
+                || budget <= 0 || venue < 0 || food < 0 || decoration < 0
+                || venue > Double.MAX_VALUE - food
+                || venue + food > Double.MAX_VALUE - decoration) {
             System.out.println("Please enter valid budget and expense amounts.");
             sc.close();
             return;
