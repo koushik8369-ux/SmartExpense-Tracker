@@ -1,4 +1,8 @@
+import java.util.Scanner;
 
+public class BillSplitCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter total bill amount (Rs.): ");
         double bill = sc.nextDouble();
