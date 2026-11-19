@@ -1,9 +1,3 @@
-import java.util.Scanner;
-
-public class CreditCardPaymentChecker {
-
-    private double billAmount;
-    private double amountPaid;
 
     public CreditCardPaymentChecker(double billAmount, double amountPaid) {
         this.billAmount = billAmount;
